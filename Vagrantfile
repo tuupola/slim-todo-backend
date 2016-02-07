@@ -81,7 +81,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ███████║███████╗██║██║ ╚═╝ ██║██████╔╝
   ╚══════╝╚══════╝╚═╝╚═╝     ╚═╝╚═════╝
 
- You can access me at: https://192.168.50.51/
+ You can access me at: http://192.168.50.51/todos
 
 MESSAGE
 
