@@ -3,4 +3,4 @@ vendor/
 composer.lock
 .vagrant/
 npm-debug.log
-
+.rocketeer/
