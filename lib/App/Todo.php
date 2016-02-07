@@ -24,11 +24,6 @@ class Todo extends \Spot\Entity
         ];
     }
 
-    public static function relations(MapperInterface $mapper, EntityInterface $entity)
-    {
-        return [];
-    }
-
     public static function events(EventEmitter $emitter)
     {
         $emitter->on("beforeInsert", function (EntityInterface $entity, MapperInterface $mapper) {

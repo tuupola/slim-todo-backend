@@ -9,8 +9,6 @@ class TodoTransformer extends Fractal\TransformerAbstract
 
     public function transform(Todo $todo)
     {
-        $utc = new \DateTimeZone("UTC");
-
         return [
             "uuid" => (string)$todo->uuid ?: null,
             "order" => (integer)$todo->order ?: 0,
