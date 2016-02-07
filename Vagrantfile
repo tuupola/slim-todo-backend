@@ -37,6 +37,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     yum -y install mysql-server
     /etc/init.d/mysqld restart
     /sbin/chkconfig --levels 235 mysqld on
+
+    echo "CREATE DATABASE example" | mysql -u root
+    cd /vagrant && bin/db migrate
   SHELL
 
   # Update Apache config and restart
