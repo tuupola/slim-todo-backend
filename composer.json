@@ -1,12 +1,12 @@
 {
     "name": "tuupola/slim-skeleton",
-    "description": "Slim 3 + Datamapper + Monolog + Plates project",
+    "description": "Slim 3 + Datamapper + Monolog example for todobackend.com ",
     "type": "project",
     "keywords": [
         "slim",
-        "skeleton"
+        "todo"
     ],
-    "homepage": "https://github.com/tuupola/slim-skeleton",
+    "homepage": "https://github.com/tuupola/slim-todo-backend",
     "license": "MIT",
     "authors": [
         {
@@ -22,9 +22,6 @@
         "vlucas/phpdotenv": "^2.0",
         "symfony/console": "^2.7",
         "vlucas/spot2": "^2.1",
-        "league/plates": "^3.1",
-        "tuupola/slim-basic-auth": "^2.0",
-        "tuupola/slim-jwt-auth": "^2.0",
         "ramsey/uuid": "^3.1",
         "league/fractal": "^0.13.0"
     },
