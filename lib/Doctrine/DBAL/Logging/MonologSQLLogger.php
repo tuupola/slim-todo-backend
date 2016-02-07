@@ -11,23 +11,7 @@ class MonologSQLLogger implements SQLLogger
 
     public function __construct($logger = null)
     {
-
         $this->logger = $logger;
-
-
-           /* Default options. */
-           /*
-           $this->options = array(
-               "users" => array(),
-               "path" => "/",
-               "realm" => "Protected",
-               "environment" => "HTTP_AUTHORIZATION",
-           );
-
-           if ($options) {
-               $this->options = array_merge($this->options, (array)$options);
-           }
-       */
     }
 
 
