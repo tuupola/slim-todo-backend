@@ -1,28 +1,21 @@
 # Slim 3 REST API skeleton
 
-[![Latest Version](https://img.shields.io/packagist/v/tuupola/slim-api-skeleton.svg?style=flat-square)](https://github.com/tuupola/slim-api-skeleton/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
-This is Slim 3 skeleton project form Composer. Project includes [Spot2](http://phpdatamapper.com/), [Monolog](https://github.com/Seldaek/monolog), libraries and [Vagrant](https://www.vagrantup.com/) virtualmachine config.
 
-## Install
 
-Install the latest version using [composer](https://getcomposer.org/).
+This is Slim 3 + [Datamapper](http://phpdatamapper.com/) example for [todobackend.com](http://todobackend.com). Also includes [Vagrant](https://www.vagrantup.com/) virtualmachine config.
 
-``` bash
-$ composer create-project --no-interaction --stability=dev tuupola/slim-api-skeleton app
-```
+## Run locally
 
-## Usage
-
-If you have [Vagrant](https://www.vagrantup.com/) installed start the virtual machine.
+If you have [Vagrant](https://www.vagrantup.com/) installed, start the virtual machine.
 
 ``` bash
-$ cd app
+$ cd slim-todo-backend
 $ vagrant up
 ```
 
-Now you can access the app at [https://192.168.50.51/](https://192.168.50.51/)
+Now you can access the example at [https://192.168.50.51/todos](https://192.168.50.51/todos)
 
 ## License
 
