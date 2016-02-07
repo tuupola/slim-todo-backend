@@ -16,9 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Make sure logs folder will be writable for Apache
   config.vm.synced_folder "logs", "/vagrant/logs", owner: 48, group: 48
 
-  # Make sure downloads folder will be writable for Apache
-  #config.vm.synced_folder "public/downloads", "/vagrant/public/downloads", owner: 48, group: 48
-
   # Install all needed packages
   config.vm.provision "shell", name: "rpm", inline: <<-SHELL
     rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
@@ -31,23 +28,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     yum -y install php56w-pdo
     yum -y install php56w-mcrypt
     yum -y install php56w-mysqlnd
-    #yum -y install php56w-soap
-    #yum -y install php56w-mbstring
-    #yum -y install php56w-xml
-    # Uncomment if you want code coverage. Makes tests really slow.
-    #yum -y install php56w-pecl-xdebug
     yum -y install mod_ssl
   SHELL
 
-  # Uncomment to install basic tools
-  #config.vm.provision "shell", name: "tools", inline: <<-SHELL
-  #  yum -y install zsh
-  #  yum -y install finger
-  #  yum -y install telnet
-  #  yum -y install screen
-  #SHELL
-
-  # Uncomment to install MySQL
+  # MySQL
   config.vm.provision "shell", name: "mysql", inline: <<-SHELL
     yum -y install mysql
     yum -y install mysql-server
@@ -80,12 +64,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     /sbin/chkconfig iptables off
   SHELL
 
-  # Install Grunt and npm dependencies
-  #config.vm.provision "shell", name: "grunt", inline: <<-SHELL
-  #  yum -y install npm
-  #  npm install -g grunt-cli
-  #  cd /vagrant && npm install
-  #SHELL
+  # Stop iptable because it will cause too much confusion
+  config.vm.provision "shell", name: "environment", inline: <<-SHELL
+    cd /vagrant && cp .env.example .env
+  SHELL
 
   config.vm.post_up_message = <<MESSAGE
 
