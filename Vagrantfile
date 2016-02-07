@@ -31,6 +31,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     yum -y install mod_ssl
   SHELL
 
+  # Install Composer and dependencies
+  config.vm.provision "shell", name: "composer", inline: <<-SHELL
+    curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+    cd /vagrant && /usr/local/bin/composer install
+  SHELL
+
   # MySQL
   config.vm.provision "shell", name: "mysql", inline: <<-SHELL
     yum -y install mysql
