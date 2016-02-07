@@ -36,7 +36,6 @@ $app->get("/", function ($request, $response, $arguments) {
         ->withHeader("Location", "/todos");
 });
 
-
 $app->get("/todos", function ($request, $response, $arguments) {
     $todos = $this->spot->mapper("App\Todo")->all();
 
@@ -45,6 +44,9 @@ $app->get("/todos", function ($request, $response, $arguments) {
     $resource = new Collection($todos, new TodoTransformer);
     $data = $fractal->createData($resource)->toArray();
 
+    /* Fractal collections are always namespaced. Apparently a feature and */
+    /* not a bug. Thus we need to return $data["data"] for TodoMVC examples. */
+    /* https://github.com/thephpleague/fractal/issues/110 */
     return $response->withStatus(200)
         ->withHeader("Content-Type", "application/json")
         ->write(json_encode($data["data"], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
@@ -110,7 +112,6 @@ $app->put("/todos", function ($request, $response, $arguments) {
         ->withHeader("Content-Type", "application/json")
         ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 });
-
 
 /* In real life this this is probably a bad idea. */
 $app->delete("/todos", function ($request, $response, $arguments) {
