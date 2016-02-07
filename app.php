@@ -31,6 +31,12 @@ $app->add(function ($request, $response, $next) {
     return $next($request, $response);
 });
 
+$app->get("/", function ($request, $response, $arguments) {
+    return $response->withStatus(301)
+        ->withHeader("Location", "/todos");
+});
+
+
 $app->get("/todos", function ($request, $response, $arguments) {
     $todos = $this->spot->mapper("App\Todo")->all();
 
