@@ -1,10 +1,9 @@
-# Slim 3 REST API skeleton
-
+# Slim 3 + Spot todo backend
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 
 
-This is Slim 3 + [Datamapper](http://phpdatamapper.com/) example for [todobackend.com](http://todobackend.com). Also includes [Vagrant](https://www.vagrantup.com/) virtualmachine config.
+This is Slim 3 + [Spot](http://phpdatamapper.com/) example for [todobackend.com](http://todobackend.com). Also includes [Vagrant](https://www.vagrantup.com/) virtualmachine config.
 
 ## Run locally
 
