@@ -13,6 +13,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "puppetlabs/centos-6.6-64-nocm"
   config.vm.network "private_network", ip: "192.168.50.51"
 
+  # Configure cached packages to be shared between instances of the same base box.
+  # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
+  if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :box
+  end
+
   # Make sure logs folder will be writable for Apache
   config.vm.synced_folder "logs", "/vagrant/logs", owner: 48, group: 48
 
