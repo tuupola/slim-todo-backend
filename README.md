@@ -3,7 +3,7 @@
 
 
 
-This is Slim 3 + [Spot](http://phpdatamapper.com/) example for [todobackend.com](http://todobackend.com). Also includes [Vagrant](https://www.vagrantup.com/) virtualmachine config.
+This is [Slim 3](http://www.slimframework.com/) + [Spot](http://phpdatamapper.com/) example for [Todo-Backend](http://todobackend.com). Also includes [Vagrant](https://www.vagrantup.com/) virtualmachine config. Note that this is just s simple implementation designed to pass [Todo-Backend](http://todobackend.com) tests. For more complete API skeleton see [Slim API Skeleton](https://github.com/tuupola/slim-api-skeleton).
 
 ## Run locally
 
