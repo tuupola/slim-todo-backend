@@ -23,13 +23,13 @@ $app = new Slim\App([
 require __DIR__ . "/config/logger.php";
 require __DIR__ . "/config/database.php";
 
-$app->add(function ($request, $response, $next) {
-    $response = $response
-        ->withHeader("Access-Control-Allow-Headers", "Content-Type")
-        ->withHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE")
-        ->withHeader("Access-Control-Allow-Origin", "*");
-    return $next($request, $response);
-});
+$app->add(new \Tuupola\Middleware\Cors([
+    "origin" => "*",
+    "methods" => ["GET", "POST", "PATCH", "DELETE"],
+    "headers.allow" => ["Content-Type", "Accept"],
+    "credentials" => true,
+    "cache" => 86400
+]));
 
 $app->get("/", function ($request, $response, $arguments) {
     return $response->withStatus(301)

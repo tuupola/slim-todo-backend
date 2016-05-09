@@ -24,7 +24,8 @@
         "vlucas/spot2": "^2.1",
         "league/fractal": "^0.13.0",
         "tuupola/base62": "^0.6.0",
-        "paragonie/random_compat": "^2.0"
+        "paragonie/random_compat": "^2.0",
+        "tuupola/cors-middleware": "^0.5.1"
     },
     "autoload": {
         "psr-4": {
