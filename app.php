@@ -68,8 +68,8 @@ $app->post("/todos", function ($request, $response, $arguments) {
         ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 });
 
-$app->get("/todos/{uuid}", function ($request, $response, $arguments) {
-    $todo = $this->spot->mapper("App\Todo")->first(["uuid" => $arguments["uuid"]]);
+$app->get("/todos/{uid}", function ($request, $response, $arguments) {
+    $todo = $this->spot->mapper("App\Todo")->first(["uid" => $arguments["uid"]]);
 
     $fractal = new Manager();
     $fractal->setSerializer(new ArraySerializer);
@@ -81,10 +81,10 @@ $app->get("/todos/{uuid}", function ($request, $response, $arguments) {
         ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 });
 
-$app->patch("/todos/{uuid}", function ($request, $response, $arguments) {
+$app->patch("/todos/{uid}", function ($request, $response, $arguments) {
     $body = $request->getParsedBody();
 
-    $todo = $this->spot->mapper("App\Todo")->first(["uuid" => $arguments["uuid"]]);
+    $todo = $this->spot->mapper("App\Todo")->first(["uid" => $arguments["uid"]]);
     $todo->data($body);
     $this->spot->mapper("App\Todo")->save($todo);
 
@@ -98,8 +98,8 @@ $app->patch("/todos/{uuid}", function ($request, $response, $arguments) {
         ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 });
 
-$app->delete("/todos/{uuid}", function ($request, $response, $arguments) {
-    $todo = $this->spot->mapper("App\Todo")->first(["uuid" => $arguments["uuid"]]);
+$app->delete("/todos/{uid}", function ($request, $response, $arguments) {
+    $todo = $this->spot->mapper("App\Todo")->first(["uid" => $arguments["uid"]]);
     $this->spot->mapper("App\Todo")->delete($todo);
 
     return $response->withStatus(204)

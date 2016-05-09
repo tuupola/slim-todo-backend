@@ -6,7 +6,7 @@ use Spot\EntityInterface;
 use Spot\MapperInterface;
 use Spot\EventEmitter;
 
-use Ramsey\Uuid\Uuid;
+use Tuupola\Base62;
 use Psr\Log\LogLevel;
 
 class Todo extends \Spot\Entity
@@ -18,7 +18,7 @@ class Todo extends \Spot\Entity
         return [
             "id" => ["type" => "integer", "unsigned" => true, "primary" => true, "autoincrement" => true],
             "order" => ["type" => "integer", "unsigned" => true, "value" => 0],
-            "uuid" => ["type" => "string", "length" => 36],
+            "uid" => ["type" => "string", "length" => 16],
             "title" => ["type" => "string", "length" => 255],
             "completed" => ["type" => "boolean", "value" => false]
         ];
@@ -27,8 +27,7 @@ class Todo extends \Spot\Entity
     public static function events(EventEmitter $emitter)
     {
         $emitter->on("beforeInsert", function (EntityInterface $entity, MapperInterface $mapper) {
-            $uuid = Uuid::uuid1();
-            $entity->uuid = $uuid->toString();
+            $entity->uid = Base62::encode(random_bytes(9));
         });
     }
 }
